@@ -1,38 +1,199 @@
-.App {
+/* Đặt style chung cho toàn bộ ứng dụng */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; /* Đảm bảo box-sizing cho tất cả các phần tử */
+}
+
+body {
+  font-family: 'Arial', sans-serif; 
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+/* Style cho header */
+.header {
+  position: relative;
   text-align: center;
+  margin-bottom: 20px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Banner hình ảnh */
+.banner {
+  position: relative; /* Để đặt logo bên trong */
+  width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.banner img {
+  width: 100%;
+  object-fit: cover;
+  height: auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Logo đặt trên banner */
+.logo {
+  position: absolute; /* Để đặt logo chồng lên banner */
+  top: 20px; /* Điều chỉnh khoảng cách từ trên xuống */
+  left: 20px; /* Điều chỉnh khoảng cách từ trái sang */
+  width: 100px; /* Kích thước logo */
+  height: auto;
+  z-index: 10; /* Đảm bảo logo nằm trên banner */
+}
+
+/* Style cho thanh menu */
+.menu {
+  width: 100%;
+  display: flex; /* Sử dụng Flexbox để sắp xếp các mục ngang hàng */
+  justify-content: center; /* Căn giữa các mục trên thanh */
+  list-style: none; /* Xóa dấu chấm tròn mặc định của danh sách */
+  padding: 0; /* Xóa khoảng cách bên trong */
+  margin: 0; /* Xóa khoảng cách ngoài */
+  background-color: #ffffff; /* Màu nền cho thanh menu */
+}
+
+/* Style cho liên kết (link) bên trong menu */
+.menu a {
+  text-decoration: none; /* Xóa gạch chân mặc định của link */
+  color: rgb(0, 0, 0); /* Màu chữ */
+  font-weight: bold;
+  padding: 10px 15px; /* Khoảng cách bên trong để dễ nhấn */
+  display: block; /* Để padding có hiệu lực trên toàn bộ phần tử */
+}
+/* Ô tìm kiếm */
+.search {
+  position: absolute; /* Để ô tìm kiếm nằm trên banner */
+  top: 50%; /* Giữa theo chiều dọc */
+  left: 50%; /* Giữa theo chiều ngang */
+  transform: translate(-50%, -50%); /* Để căn chính xác giữa */
+  display: flex; /* Sắp xếp ô tìm kiếm và nút tìm kiếm theo hàng */
+}
+
+.search-input {
+  padding: 10px; /* Khoảng cách bên trong */
+  border: 1px solid #ddd; /* Đường viền */
+  border-radius: 4px; /* Bo tròn góc */
+  width: 300px; /* Chiều rộng ô tìm kiếm */
+}
+
+.search-button {
+  background-color: transparent; /* Không có màu nền */
+  border: none; /* Không có đường viền */
+  cursor: pointer; /* Con trỏ khi di chuột qua */
+  padding: 10px; /* Khoảng cách bên trong */
+  display: flex; /* Sử dụng Flexbox để căn giữa biểu tượng */
+  align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.search-button i {
+  color: #4CAF50; /* Màu sắc của biểu tượng tìm kiếm */
+  font-size: 18px; /* Kích thước biểu tượng */
+}
+
+/* Thay đổi màu sắc khi di chuột qua */
+.search-button:hover i {
+  color: #45a049; /* Màu sắc khi di chuột qua */
+}
+
+
+/* Style cho danh sách thuốc */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.col-md-2 li {
+ background-color: rgb(62, 63, 66);
+  margin: 0;
+  padding: 5px;
+
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-bottom: 2px solid rgb(88, 219, 99);
+
+}
+.nav-link {
+  color:  white;
+}
+.sidebar-sticky{
+  margin-left: -12px;
+}
+
+.navbar-brand{
+  margin-left: -30px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+/* Style cho chi tiết thuốc */
+
+
+/* Style cho giỏ hàng */
+h2 {
+  font-size: 1.5rem;
 }
 
-.App-link {
-  color: #61dafb;
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cart-item p {
+  margin: 0;
 }
+
+.cart-item button {
+  background-color: #f44336;
+}
+
+.cart-item button:hover {
+  background-color: #e53935;
+}
+/* admin */
+/* App.css */
+.btn {
+  font-size: 16px; /* Kích thước chữ */
+  padding: 10px 20px; /* Padding cho nút */
+  border-radius: 5px; /* Bo góc cho nút */
+  transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển đổi màu */
+}
+
+.btn-primary {
+  background-color: #007bff; /* Màu nền nút chính */
+  color: white; /* Màu chữ */
+}
+
+.btn-danger {
+  background-color: #dc3545; /* Màu nền nút hủy */
+  color: white; /* Màu chữ */
+}
+
+.btn:hover {
+  opacity: 0.9; /* Hiệu ứng khi hover */
+}
+/* App.css */
+.container-fluid {
+  padding: 0 15px; /* Thêm khoảng cách cho container */
+}
+
+.row {
+  margin: 0; /* Bỏ khoảng cách mặc định */
+}
+
+.col-md-9 {
+  /* Sử dụng cho Dashboard */
+  padding: 20px; /* Thêm khoảng cách nội bộ cho Dashboard */
+}
+.sidebar {
+  height: 100vh; /* Full viewport height */
+}
+.nav {
+
+  justify-content: space-evenly;
+ 
+
+}
+/* dashboard*/
+
