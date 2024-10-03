@@ -1,4 +1,5 @@
 /* Đặt style chung cho toàn bộ ứng dụng */
+@import '~@fortawesome/fontawesome-free/css/all.css';
 * {
   padding: 0;
   margin: 0;
@@ -22,23 +23,28 @@ body {
 
 /* Banner hình ảnh */
 .banner {
+  display: flex;
   position: relative; /* Để đặt logo bên trong */
-  width: 100%;
+  width: 1561px;
+  background: rgb(40, 69, 165);
+  height: 152px;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.banner img {
+/* .banner img {
   width: 100%;
   object-fit: cover;
   height: auto;
-}
+} */
 
 /* Logo đặt trên banner */
 .logo {
   position: absolute; /* Để đặt logo chồng lên banner */
-  top: 20px; /* Điều chỉnh khoảng cách từ trên xuống */
-  left: 20px; /* Điều chỉnh khoảng cách từ trái sang */
-  width: 100px; /* Kích thước logo */
-  height: auto;
+  top: 47px; /* Điều chỉnh khoảng cách từ trên xuống */
+  left: 144px; /* Điều chỉnh khoảng cách từ trái sang */
+  width: 187px; /* Kích thước logo */
+  height: 54px;
   z-index: 10; /* Đảm bảo logo nằm trên banner */
 }
 
@@ -73,8 +79,9 @@ body {
 .search-input {
   padding: 10px; /* Khoảng cách bên trong */
   border: 1px solid #ddd; /* Đường viền */
-  border-radius: 4px; /* Bo tròn góc */
-  width: 300px; /* Chiều rộng ô tìm kiếm */
+  border-radius: 50px; /* Bo tròn góc */
+  width: 713px; /* Chiều rộng ô tìm kiếm */
+  height: 53px;
 }
 
 .search-button {
@@ -86,16 +93,30 @@ body {
   align-items: center; /* Căn giữa theo chiều dọc */
 }
 
-.search-button i {
-  color: #4CAF50; /* Màu sắc của biểu tượng tìm kiếm */
-  font-size: 18px; /* Kích thước biểu tượng */
-}
+
 
 /* Thay đổi màu sắc khi di chuột qua */
-.search-button:hover i {
-  color: #45a049; /* Màu sắc khi di chuột qua */
+
+.img, svg {
+  margin-left: -50px;
+}
+.button-login {
+  display: flex; /* Sử dụng flexbox để sắp xếp các phần tử trong button-login */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  margin-left: 10px; /* Khoảng cách giữa nút tìm kiếm và nút đăng nhập */
+  background-color: #007bff; /* Màu nền cho nút đăng nhập */
+  padding: 10px 15px; /* Khoảng cách bên trong nút */
+  border-radius: 5px; /* Thêm border radius cho nút đăng nhập */
+  cursor: pointer; /* Con trỏ chuột khi hover */
+  color: #ffffff; /* Màu chữ cho nút đăng nhập */
+  width: 134px;
+  height: 48px;
+  margin-left: 1151px;
 }
 
+.button-login i {
+  margin-right: 5px; /* Khoảng cách giữa biểu tượng và chữ */
+}
 
 /* Style cho danh sách thuốc */
 ul {
@@ -196,4 +217,13 @@ h2 {
 
 }
 /* dashboard*/
+.hh p {
 
+  opacity: 0;
+  transition: opacity 0.8s;
+}
+
+.hh a:hover + p {
+  opacity: 1;
+  
+}

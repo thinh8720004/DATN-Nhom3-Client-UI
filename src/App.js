@@ -14,7 +14,7 @@ const AppContent = () => {
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedDrug, setSelectedDrug] = useState(null);
   const [cart, setCart] = useState([]);
-  const navigate = useNavigate(); // Khai báo useNavigate
+  const navigate = useNavigate();
 
   const handleDrugSelect = (drug) => {
     setSelectedDrug(drug);
@@ -28,7 +28,9 @@ const AppContent = () => {
     setIsAdmin(prevIsAdmin => {
       const newIsAdmin = !prevIsAdmin;
       if (newIsAdmin) {
-        navigate('/dashboard'); // Chuyển hướng đến Dashboard nếu là Admin
+        navigate('/dashboard');
+      } else {
+        navigate('/');
       }
       return newIsAdmin;
     });
@@ -36,12 +38,6 @@ const AppContent = () => {
 
   return (
     <div className="container-fluid">
-      <button
-        onClick={toggleAdmin}
-        className={`btn ${isAdmin ? "btn-danger" : "btn-primary"} mb-3`}
-      >
-        {isAdmin ? "Switch to User" : "Switch to Admin"}
-      </button>
       {isAdmin ? (
         <div className="row">
           <AdminHeader />
@@ -51,13 +47,12 @@ const AppContent = () => {
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/product-management" element={<ProductManagement />} />
               <Route path="/" element={<div>Welcome to Admin Dashboard</div>} />
-              {/* Thêm các Route khác ở đây */}
             </Routes>
           </div>
         </div>
       ) : (
         <div>
-          <UserHeader />
+          <UserHeader toggleAdmin={toggleAdmin} />
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <DrugList onDrugSelect={handleDrugSelect} />
             <DrugDetail drug={selectedDrug} addToCart={addToCart} />
